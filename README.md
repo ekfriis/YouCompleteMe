@@ -18,6 +18,7 @@ YouCompleteMe: a code-completion engine for Vim
     - [C-family semantic completion](#c-family-semantic-completion-engine-usage)
     - [Python semantic completion](#python-semantic-completion)
     - [C# semantic completion](#c-semantic-completion)
+    - [Go semantic completion](#c-semantic-completion)
     - [Semantic completion for other languages](#semantic-completion-for-other-languages)
     - [Writing new semantic completers](#writing-new-semantic-completers)
     - [Diagnostic display](#diagnostic-display)
@@ -147,7 +148,7 @@ Compiling YCM **without** semantic support for C-family languages:
     ./install.sh
 
 If you want semantic C# support, you should add `--omnisharp-completer` to the
-install script as well.
+install script as well. If you want Go support, you should add `--gocode-completer`.
 
 That's it. You're done. Refer to the _User Guide_ section on how to use YCM.
 Don't forget that if you want the C-family semantic completion engine to work,
@@ -190,7 +191,7 @@ Compiling YCM **without** semantic support for C-family languages:
     ./install.sh
 
 If you want semantic C# support, you should add `--omnisharp-completer` to the
-install script as well.
+install script as well. If you want Go support, you should add `--gocode-completer`.
 
 That's it. You're done. Refer to the _User Guide_ section on how to use YCM.
 Don't forget that if you want the C-family semantic completion engine to work,
@@ -243,7 +244,7 @@ Compiling YCM **without** semantic support for C-family languages:
     ./install.sh --system-boost
 
 If you want semantic C# support, you should add `--omnisharp-completer` to the
-install script as well.
+install script as well. If you want Go support, you should add `--gocode-completer`.
 
 That's it. You're done. Refer to the _User Guide_ section on how to use YCM.
 Don't forget that if you want the C-family semantic completion engine to work,
@@ -523,6 +524,18 @@ repository.
 
 OmniSharp is written in C# and has to be compiled. The `install.sh` script takes
 care of this if you pass `--omnisharp-completer` as an argument.
+
+### Go semantic completion
+
+YCM uses [Gocode][] to provide semantic completion for Go. It's used as a git
+subrepo. If you're installing YCM with Vundle (which is the recommended way)
+then Vundle will make sure that the subrepo is checked out when you do
+`:PluginInstall`. If you're installing YCM by hand, then you need to run `git
+submodule update --init --recursive` when you're checking out the YCM
+repository.
+
+Gocode is written in Go and has to be compiled. The `install.sh` script takes
+care of this if you pass `--gocode-completer` as an argument.
 
 ### Semantic completion for other languages
 
@@ -2013,3 +2026,4 @@ This software is licensed under the [GPL v3 license][gpl].
 [bear]: https://github.com/rizsotto/Bear
 [Options]: https://github.com/Valloric/YouCompleteMe#options
 [ygen]: https://github.com/rdnetto/YCM-Generator
+[Gocode]: https://github.com/nsf/gocode
